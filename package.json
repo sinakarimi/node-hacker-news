@@ -1,0 +1,19 @@
+{
+  "name": "node-hacker-news",
+  "version": "0.0.1",
+  "description": "A little app that shows articles relating to Node.js on Hacker News",
+  "main": "server.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha --reporter Spec test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sinakarimi/node-hacker-news.git"
+  },
+  "author": "Sina Karimi <creamycode@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sinakarimi/node-hacker-news/issues"
+  },
+  "homepage": "https://github.com/sinakarimi/node-hacker-news"
+}
