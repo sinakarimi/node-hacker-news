@@ -16,8 +16,3 @@ commander
 var port = commander.port || config.core.port;
 app.listen(port);
 logger.info('Node Hacker News server listening on port ' + port);
-// Uncaught exception handler.
-process.addListener('uncaughtException', function(err) {
-	logger.uncaught('Uncaught error in server.js', { err:err, stack: err.stack });
-	process.exit(1);
-});
