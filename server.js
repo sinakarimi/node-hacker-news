@@ -1,3 +1,5 @@
+// app-module-path negates the need to have to write
+// crazy local modules paths, e.g. ../../../config
 require('app-module-path').addPath(__dirname);
 
 var commander = require('commander');
