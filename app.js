@@ -5,6 +5,10 @@ var http = require('http');
 var logger = require('lib/logger');
 
 var app = express();
+
+// Attach router
+app.use(require('lib/router'));
+
 app = http.createServer(app);
 
 // Uncaught exception handler.
