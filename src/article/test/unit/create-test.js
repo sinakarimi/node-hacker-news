@@ -1,8 +1,8 @@
 var _ = require('lodash');
 var async = require('async');
+var should = require('should');
 
 var Article = require('src/article/model');
-var should = require('should');
 
 describe('Article:unit:create', function() {
 	it('should create an article if it does not exist', function(done) {
