@@ -1,0 +1,4 @@
+--check-leaks
+--recursive
+--globals projection
+--ui bdd
