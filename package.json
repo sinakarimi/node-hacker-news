@@ -4,7 +4,7 @@
   "description": "A little app that shows articles relating to Node.js on Hacker News",
   "main": "server.js",
   "scripts": {
-    "test": "MONGODB_DATABASE=node_hacker_news_test node_modules/mocha/bin/mocha --reporter Spec test src/**/*-test.js"
+    "test": "MONGODB_DATABASE=node_hacker_news_test node node_modules/nodemon/bin/nodemon.js node_modules/mocha/bin/mocha --reporter Spec test src/**/*-test.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "mocha": "^2.3.3",
     "mongoose-fixtures": "0.0.1",
+    "nodemon": "^1.8.1",
     "should": "^7.1.1"
   }
 }
