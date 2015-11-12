@@ -21,3 +21,9 @@ npm install
 npm start
 ```
 3. Visit `http://localhost:8080` (or whatever port you have set in your config)
+
+## Running tests
+
+```
+npm test
+```
