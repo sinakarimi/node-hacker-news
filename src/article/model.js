@@ -24,6 +24,10 @@ var schema = new Schema({
 		index: {
 			unique: true
 		}
+	},
+	deleted: {
+		type: Boolean,
+		default: false
 	}
 });
 

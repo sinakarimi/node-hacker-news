@@ -3,7 +3,9 @@ var Article = require('src/article/model');
 
 var controller = {
 	list: function(req, res, next) {
-		Article.find()
+		Article.find({
+			deleted: false
+		})
 		.sort('-created_at')
 		.exec(function(err, articles) {
 			if (err) {
@@ -14,9 +16,18 @@ var controller = {
 		});
 	},
 	delete: function(req, res, next) {
-		// @TODO: Implement this function
-		res.send('delete');
-	},
+		var articleId = req.params.articleId;
+
+		var query = { _id: articleId};
+		var update = { deleted: true };
+		Article.findOneAndUpdate(query, update, {}, function(err) {
+			if (err) {
+				return next(err);
+			}
+
+			res.redirect('/');
+		});
+	}
 };
 
 module.exports = _.extend(controller, require('lib/base-controller'));
