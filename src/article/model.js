@@ -20,6 +20,7 @@ var schema = new Schema({
 	// this refers to the hacker news object id of the article itself
 	objectID: {
 		type: String,
+		required: true,
 		index: {
 			unique: true
 		}
@@ -37,26 +38,35 @@ schema.static({
 			function findArticle(cb) {
 				Article.findOne({ objectID: data.objectID }).exec(cb);
 			},
-			function saveArticle(article, cb) {
+			function checkArticle(article, cb) {
 				if (article) {
-					return cb(null, article);
+					_updateArticle(article, cb);
+				} else {
+					_saveArticle(data, cb);
+				}
+			}
+		], callback);
+
+		function _saveArticle(data, cb) {
+			var data = new Article(data);
+			data.save(function(err) {
+				if (err) {
+					return cb(err);
 				}
 
-				var newArticle = new Article(article);
-				newArticle.save(function(err) {
-					if (err) {
-						return callback(err);
-					}
+				cb();
+			});
+		}
 
-					cb(true);
-				});
-			},
-			function updateArticle(article, cb) {
-				Article.findByIdAndUpdate(article._id, data, {}).exec(function(err, arg) {
-					Article.findById(article._id, cb);
-				});
-			}
-		], callback)
+		function _updateArticle(article, cb) {
+			Article.findByIdAndUpdate(article._id, data, {}).exec(function(err, arg) {
+				if (err) {
+					return cb(err);
+				}
+
+				Article.findById(article._id, cb);
+			});
+		}
 	}
 })
 

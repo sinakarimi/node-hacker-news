@@ -7,6 +7,8 @@ describe('Article:e2e:list', function() {
 	it('should get a list of articles sorted from newest to oldest', function(done) {
 		request
 			.get(url)
+			.set('Accept', 'application/json')
+			.expect('Content-Type', /json/)
 			.expect(200, function(err, res) {
 				should.not.exist(err);
 				should.exist(res.body);
