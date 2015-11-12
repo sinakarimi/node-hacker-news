@@ -1,4 +1,4 @@
-# node-hacker-news
+# Node Hacker News Feed
 
 ## About
 
