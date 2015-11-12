@@ -1,0 +1,32 @@
+/*
+	Table Styles
+ */
+
+.table tr {
+	background-color: #fff;
+}
+
+.table-hover tbody tr:hover td {
+	background-color: #fafafa;
+}
+
+.table tr td {
+	color: #333;
+	font-size: 13pt;
+}
+
+.author {
+	color: #999;
+}
+
+.table-hover tr {
+	cursor: pointer
+}
+
+.delete {
+	visibility: hidden;
+}
+
+.table-hover tr:hover .delete {
+	visibility: visible;
+}

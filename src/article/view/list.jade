@@ -3,13 +3,14 @@ extends ../../template/layout
 block content
 	//- h1 Articles #{data}
 	table.table.table-hover
-		each article in data
-			tr(onclick="")
-				- var title = article.story_title ? article.story_title : article.title
-				td #{title} - <small>#{article.author}</small> -
-				td #{article.created_at}
-				td
-					a.btn.btn-primary(href="/#{article._id}/delete")
-						i.glyphicon.glyphicon-trash
-			
-			
+		tbody
+			each article in data
+				tr.js-clickable-row(data-href="#{article.story_url}")
+					- var title = article.story_title ? article.story_title : article.title
+					td #{title} <span class="author">- #{article.author} -</author>
+					td #{formatDate(article.created_at)}
+					td
+						a.btn.btn-primary.delete.js-delete-article(href="/#{article._id}/delete")
+							i.glyphicon.glyphicon-trash
+				
+				

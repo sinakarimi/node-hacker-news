@@ -8,9 +8,16 @@ var jade = require('jade');
 var app = express();
 // app.use(express.bodyParser());
 
+// Define locals to use within template
+app.locals = {
+	formatDate: require('lib/format-date')
+};
+
 // Set the default view engine to Jade.
 app.set('views', __dirname + '/src')
 app.set('view engine', 'jade');
+
+app.use(express.static(__dirname + '/public', { maxAge: 31557600000 }));
 
 // Attach router
 app.use(require('lib/router'));
