@@ -4,6 +4,7 @@
   "description": "A little app that shows articles relating to Node.js on Hacker News",
   "main": "server.js",
   "scripts": {
+    "watch": "node_modules/.bin/nodemon server.js",
     "test": "MONGODB_DATABASE=node_hacker_news_test node node_modules/nodemon/bin/nodemon.js node_modules/mocha/bin/mocha --reporter Spec test src/**/*-test.js",
     "article-worker": "node src/article/worker"
   },
