@@ -33,18 +33,16 @@ function processArticles(articles) {
 		if (err) {
 			logger.error('Error processing article', { err: err, stack: err.stack });
 		}
+
+		logger.info('Finished process articles at', new Date());
 	});
 }
 
 function saveArticle(article, callback) {
-	logger.info('Saving article');
-
 	Article.createOrUpdate(article, function(err) {
 		if (err) {
 			return callback(err);
 		}
-
-		logger.info('Article saved!');
 
 		callback(null)
 	});

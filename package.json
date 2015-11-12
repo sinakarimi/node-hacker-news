@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "node_modules/.bin/nodemon server.js",
     "test": "MONGODB_DATABASE=node_hacker_news_test node node_modules/nodemon/bin/nodemon.js node_modules/mocha/bin/mocha --reporter Spec test src/**/*-test.js",
-    "article-worker": "node src/article/worker"
+    "worker:article": "node src/article/worker"
   },
   "repository": {
     "type": "git",

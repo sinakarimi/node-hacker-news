@@ -22,12 +22,16 @@ npm start
 ```
 3. Visit `http://localhost:8080` (or whatever port you have set in your config)
 
-4. Run the following task to launch the article worker. This worker will request
-new articles as soon as it's launched, then it will make a request every hour as long
-as the process stays alive
+## Fetching articles
+
+Articles are fetched by running a worker server. This server runs on a timer of
+1 hour, meaning it will fetch for articles once every hour as long as the worker
+server process remains running.
+
+To run the article worker server execute the following command
 
 ```
-npm run article-worker
+npm run worker:article
 ```
 
 ## Running tests
