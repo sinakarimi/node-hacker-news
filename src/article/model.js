@@ -31,11 +31,6 @@ var schema = new Schema({
 	}
 });
 
-// schema.pre('save', function(next) {
-// 	var article = this;
-// 	return next();
-// });
-
 schema.static({
 	createOrUpdate: function(data, callback) {
 		async.waterfall([
